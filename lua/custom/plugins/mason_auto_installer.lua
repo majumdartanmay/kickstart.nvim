@@ -3,4 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim"
+  }
 }
