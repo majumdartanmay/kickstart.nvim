@@ -10,6 +10,8 @@ vim.keymap.set('n', '<c-]>', 'yiw', { noremap = true, silent = false, desc = "se
 vim.keymap.set('i', '<c-s>', '<c-o>:w<cr>', { noremap = true, silent = false, desc = "save buffer" });
 vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { noremap = true, silent = false, desc = "Vertical split" });
 vim.keymap.set('n', '\\', '<cmd>split<cr>', { noremap = true, silent = false, desc = "Horizontal split" });
+vim.keymap.set('n', '<C-h>', '<C-w><', { noremap = true, silent = false, desc = "Decrease window width" });
+vim.keymap.set('n', '<C-l>', '<C-w>>', { noremap = true, silent = false, desc = "Increase window width" });
 --
 -- tresitter configuration
 vim.treesitter.language.register('html', 'jsp'); -- use html parser for jsp 
@@ -62,4 +64,30 @@ require("mason-tool-installer").setup{
   },
   run_on_start = true,
 }
+-- netw configurations
+--
+vim.cmd([[
+let g:netrw_keepdir = 0
+]])
 
+
+vim.cmd([[
+let g:netrw_winsize = 30
+    ]])
+
+
+vim.cmd([[
+let g:netrw_banner = 0
+]])
+
+
+vim.cmd([[
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+]])
+
+
+vim.cmd([[
+let g:netrw_localcopydircmd = 'cp -r'
+]])
+
+require("custom.plugins.config.harpoon");
