@@ -7,6 +7,8 @@ local js_based_languages = {
   "vue",
 }
 
+require("custom.plugins.config.dap-mappings");
+
 return {
   "mfussenegger/nvim-dap",
   enabled = true,
