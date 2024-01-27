@@ -26,8 +26,8 @@ local function remove_last_item()
     harpoon_list:removeAt(harpoon_list:length())
 end
 
-vim.keymap.set("n", "<C-h>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+vim.keymap.set("n", "<leader>1", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
 
-vim.keymap.set("n", "<C-h>1", function() harpoon:list():append() end, { desc = "Add to harpoon." });
+vim.keymap.set("n", "<leader>11", function() harpoon:list():append() end, { desc = "Add to harpoon." });
 
-vim.keymap.set("n", "<C-h>2", remove_last_item, { desc = "Remove last harpoon item" })
+vim.keymap.set("n", "<leader>12", remove_last_item, { desc = "Remove last harpoon item" })

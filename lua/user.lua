@@ -1,3 +1,4 @@
+vim.keymap.set('n', '<C-q>', '<cmd>qa!<cr>', {noremap = true, silent = false, desc = "Force quit" });
 vim.keymap.set('n', '<leader>ff', function() require("telescope.builtin").find_files() end, {noremap = true, silent = false, desc = "Telescope find files" });
 vim.keymap.set('n', '<leader>fw', function() require("telescope.builtin").live_grep() end, {noremap = true, silent = false, desc = "Telescope live grep" });
 vim.keymap.set('i', '<C-b>', '<C-w>', { noremap = true, silent = true })
@@ -12,6 +13,8 @@ vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { noremap = true, silent = false, de
 vim.keymap.set('n', '\\', '<cmd>split<cr>', { noremap = true, silent = false, desc = "Horizontal split" });
 vim.keymap.set('n', '<C-h>', '<C-w><', { noremap = true, silent = false, desc = "Decrease window width" });
 vim.keymap.set('n', '<C-l>', '<C-w>>', { noremap = true, silent = false, desc = "Increase window width" });
+vim.keymap.set('n', '<leader>dd', function() vim.cmd([[:Lexplore %:p:h]]) end, { noremap = true, silent = false, desc = "Open Netrw in the directory of the current file." });
+vim.keymap.set('n', '<leader>da', function() vim.cmd([[:Lexplore]]) end, { noremap = true, silent = false, desc = "Will open Netrw in the current working directory." });
 --
 -- tresitter configuration
 vim.treesitter.language.register('html', 'jsp'); -- use html parser for jsp 
@@ -66,9 +69,9 @@ require("mason-tool-installer").setup{
 }
 -- netw configurations
 --
-vim.cmd([[
-let g:netrw_keepdir = 0
-]])
+-- vim.cmd([[
+-- let g:netrw_keepdir = 0
+-- ]])
 
 
 vim.cmd([[
@@ -91,3 +94,24 @@ let g:netrw_localcopydircmd = 'cp -r'
 ]])
 
 require("custom.plugins.config.harpoon");
+
+
+
+vim.keymap.set('n', '<M-c>', function()
+  local filePath = vim.api.nvim_buf_get_name(0);
+  if filePath == "" then
+    print("No buffer is open. Aborting copy-paste.");
+    return;
+  end
+  -- filePath = string.gsub(filePath, "\\", "/");
+  -- local command = string.format("redir @* | echo \"%s\" | redir END", filePath);
+  print(("Copied: `%s`"):format(filePath))
+  vim.fn.setreg("+", filePath)
+  -- vim.cmd(command);
+end, { noremap = true, silent = true, desc = "Copy buffer path to clipboard" })
+
+-- Primagen keymapping
+-- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/remap.lua
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
