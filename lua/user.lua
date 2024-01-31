@@ -77,12 +77,6 @@ vim.cmd([[
 let g:netrw_winsize = 30
     ]])
 
---
--- vim.cmd([[
--- let g:netrw_banner = 0
--- ]])
-
-
 vim.cmd([[
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 ]])
@@ -102,15 +96,26 @@ vim.keymap.set('n', '<M-c>', function()
     print("No buffer is open. Aborting copy-paste.");
     return;
   end
-  -- filePath = string.gsub(filePath, "\\", "/");
-  -- local command = string.format("redir @* | echo \"%s\" | redir END", filePath);
   print(("Copied: `%s`"):format(filePath))
   vim.fn.setreg("+", filePath)
-  -- vim.cmd(command);
 end, { noremap = true, silent = true, desc = "Copy buffer path to clipboard" })
 
 -- Primagen keymapping
 -- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/remap.lua
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+local function copy_buffer_path()
+  local modify = vim.fn.fnamemodify
+  local filePath = vim.api.nvim_buf_get_name(0);
+  if filePath == "" then
+    print("No buffer is open. Aborting copy-paste.");
+    return;
+  end
+  local fileDir = modify(filePath, ":~");
+  vim.fn.setreg("+", fileDir)
+  print(("Copied: `%s`"):format(fileDir))
+end
+
+vim.keymap.set('n', '<M-C>', copy_buffer_path, { noremap = true, silent = true, desc = "Copy buffer directory path to clipboard" })
 
