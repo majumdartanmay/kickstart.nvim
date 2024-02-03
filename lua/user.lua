@@ -1,5 +1,6 @@
 vim.keymap.set('n', '<C-q>', '<cmd>qa!<cr>', {noremap = true, silent = false, desc = "Force quit" });
 vim.keymap.set('n', '<leader>ff', function() require("telescope.builtin").find_files() end, {noremap = true, silent = false, desc = "Telescope find files" });
+vim.keymap.set('n', '<leader>Ff', function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end, {noremap = true, silent = false, desc = "Telescope find files" });
 vim.keymap.set('n', '<leader>fw', function() require("telescope.builtin").live_grep() end, {noremap = true, silent = false, desc = "Telescope live grep" });
 vim.keymap.set('i', '<C-b>', '<C-w>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
@@ -119,3 +120,7 @@ end
 
 vim.keymap.set('n', '<M-C>', copy_buffer_path, { noremap = true, silent = true, desc = "Copy buffer directory path to clipboard" })
 
+-- Configure tab space
+vim.cmd([[:set tabstop=4]])
+vim.cmd([[:set shiftwidth=4]])
+vim.cmd([[:set expandtab]])
