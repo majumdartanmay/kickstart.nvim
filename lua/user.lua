@@ -9,17 +9,16 @@ vim.keymap.set('n', '<c-a>', ':%y+<cr><cr>', {noremap = true, silent = false, de
 vim.keymap.set('i', '<c-]>', '<c-o>yiw' , {noremap = true, silent = false, desc = "select word in normal mode" });
 vim.keymap.set('n', '<c-]>', 'yiw', { noremap = true, silent = false, desc = "select word in insert mode" });
 vim.keymap.set('i', '<c-s>', '<c-o>:w<cr>', { noremap = true, silent = false, desc = "save buffer" });
+vim.keymap.set('n', '<c-s>', '<cmd>w<cr>', { noremap = true, silent = false, desc = "save buffer" });
 vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { noremap = true, silent = false, desc = "Vertical split" });
 vim.keymap.set('n', '\\', '<cmd>split<cr>', { noremap = true, silent = false, desc = "Horizontal split" });
 vim.keymap.set('n', '<C-h>', '<C-w><', { noremap = true, silent = false, desc = "Decrease window width" });
 vim.keymap.set('n', '<C-l>', '<C-w>>', { noremap = true, silent = false, desc = "Increase window width" });
-vim.keymap.set('n', '<leader>dd', function() vim.cmd([[:Lexplore %:p:h]]) end, { noremap = true, silent = false, desc = "Open Netrw in the directory of the current file." });
-vim.keymap.set('n', '<leader>da', function() vim.cmd([[:Lexplore]]) end, { noremap = true, silent = false, desc = "Will open Netrw in the current working directory." });
+vim.keymap.set('n', '<leader>pa', function() vim.cmd([[:Lexplore]]) end, { noremap = true, silent = false, desc = "Will open Netrw in the current working directory." });
+vim.keymap.set('n', '<leader>pd', function() vim.cmd([[:Lexplore %:p:h]]) end, { noremap = true, silent = false, desc = "Open Netrw in the directory of the current file." });
 --
 -- tresitter configuration
 vim.treesitter.language.register('html', 'jsp'); -- use html parser for jsp 
-
-
 
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
@@ -69,19 +68,19 @@ require("mason-tool-installer").setup{
 }
 -- netw configurations
 --
--- vim.cmd([[
--- let g:netrw_keepdir = 0
--- ]])
+vim.cmd([[
+let g:netrw_keepdir = 0
+]])
 
 
 vim.cmd([[
 let g:netrw_winsize = 30
     ]])
 
-
-vim.cmd([[
-let g:netrw_banner = 0
-]])
+--
+-- vim.cmd([[
+-- let g:netrw_banner = 0
+-- ]])
 
 
 vim.cmd([[
