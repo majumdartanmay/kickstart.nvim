@@ -7,8 +7,7 @@ vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
 vim.keymap.set('i', '<c-z>', '<c-o>u', { desc = "undo" });
 vim.keymap.set('i', '<c-a>', '<c-o>:%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in insert mode" });
 vim.keymap.set('n', '<c-a>', ':%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in normal mode" });
-vim.keymap.set('i', '<c-]>', '<c-o>yiw' , {noremap = true, silent = false, desc = "select word in normal mode" });
-vim.keymap.set('n', '<c-]>', 'yiw', { noremap = true, silent = false, desc = "select word in insert mode" });
+vim.keymap.set('n', '<c-]>', function() require("telescope.builtin").buffers() end, { noremap = true, silent = false, desc = "Open list of buffers" });
 vim.keymap.set('i', '<c-s>', '<c-o>:w<cr>', { noremap = true, silent = false, desc = "save buffer" });
 vim.keymap.set('n', '<c-s>', '<cmd>w<cr>', { noremap = true, silent = false, desc = "save buffer" });
 vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { noremap = true, silent = false, desc = "Vertical split" });
@@ -124,3 +123,7 @@ vim.keymap.set('n', '<M-C>', copy_buffer_path, { noremap = true, silent = true, 
 vim.cmd([[:set tabstop=4]])
 vim.cmd([[:set shiftwidth=4]])
 vim.cmd([[:set expandtab]])
+
+-- Set required environment variables
+
+
