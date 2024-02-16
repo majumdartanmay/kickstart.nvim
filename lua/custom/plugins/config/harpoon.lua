@@ -1,4 +1,3 @@
-
 local harpoon = require("harpoon")
 
   -- REQUIRED
