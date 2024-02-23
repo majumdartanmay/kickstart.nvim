@@ -88,6 +88,7 @@ let g:netrw_localcopydircmd = 'cp -r'
 
 require("custom.plugins.config.harpoon");
 require("custom.plugins.config.java");
+require("custom.plugins.config.doge");
 
 vim.keymap.set('n', '<M-c>', function()
   local filePath = vim.api.nvim_buf_get_name(0);
