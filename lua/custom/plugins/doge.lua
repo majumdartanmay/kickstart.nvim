@@ -2,6 +2,6 @@ return (
   {
     "kkoomen/vim-doge",
     lazy = false,
-    run = ":call doge#install()";
+    build = function() vim.fn[":call doge#install()"]() end,
   }
 )

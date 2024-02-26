@@ -123,3 +123,7 @@ vim.keymap.set('n', '<M-C>', copy_buffer_path, { noremap = true, silent = true, 
 vim.cmd([[:set tabstop=4]])
 vim.cmd([[:set shiftwidth=4]])
 vim.cmd([[:set expandtab]])
+
+-- MarkdownPreview
+--
+vim.keymap.set('n', '<leader>m', ":MarkdownPreview<cr>", { noremap = true, silent = true, desc = "Start markdown preview" })
