@@ -127,3 +127,7 @@ vim.cmd([[:set expandtab]])
 -- MarkdownPreview
 --
 vim.keymap.set('n', '<leader>m', ":MarkdownPreview<cr>", { noremap = true, silent = true, desc = "Start markdown preview" })
+
+-- undo tree
+--
+vim.keymap.set('n', '<F5>', vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "Start undo tree" })
