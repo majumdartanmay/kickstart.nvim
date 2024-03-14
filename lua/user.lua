@@ -132,5 +132,6 @@ vim.keymap.set('n', '<leader>m', ":MarkdownPreview<cr>", { noremap = true, silen
 --
 vim.keymap.set('n', '<F5>', vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "Start undo tree" })
 
--- Exit terminal
+-- Terminal utils
 vim.keymap.set('t', '<ESC><ESC>', '<C-\\><C-n>', { noremap = true, silent = true, desc = "Start undo tree" })
+vim.keymap.set('n', 'tt', ':term<CR>', { noremap = true, silent = true, desc = "Open terminal" })
