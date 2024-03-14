@@ -1,6 +1,7 @@
 vim.keymap.set('n', '<C-q>', '<cmd>qa!<cr>', {noremap = true, silent = false, desc = "Force quit" });
 vim.keymap.set('n', '<leader>ff', function() require("telescope.builtin").find_files() end, {noremap = true, silent = false, desc = "Telescope find files" });
 vim.keymap.set('n', '<leader>Ff', function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end, {noremap = true, silent = false, desc = "Telescope find files" });
+vim.keymap.set('n', '<leader>f3', function() require("telescope.builtin").buffers { hidden = true, no_ignore = true } end, {noremap = true, silent = false, desc = "Telescope find buffers" });
 vim.keymap.set('n', '<leader>fw', function() require("telescope.builtin").live_grep() end, {noremap = true, silent = false, desc = "Telescope live grep" });
 vim.keymap.set('i', '<C-b>', '<C-w>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
