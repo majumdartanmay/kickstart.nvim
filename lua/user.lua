@@ -1,6 +1,8 @@
 vim.keymap.set('n', '<C-q>', '<cmd>qa!<cr>', {noremap = true, silent = false, desc = "Force quit" });
 vim.keymap.set('n', '<leader>ff', function() require("telescope.builtin").find_files() end, {noremap = true, silent = false, desc = "Telescope find files" });
 vim.keymap.set('n', '<leader>Ff', function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end, {noremap = true, silent = false, desc = "Telescope find files" });
+vim.keymap.set('n', '<leader>f3', function() require("telescope.builtin").buffers { hidden = true, no_ignore = true } end, {noremap = true, silent = false, desc = "Telescope find buffers" });
+vim.keymap.set('n', '<leader>f4', function() require("telescope.builtin").git_branches { hidden = true, no_ignore = true } end, {noremap = true, silent = false, desc = "Telescope find branches" });
 vim.keymap.set('n', '<leader>fw', function() require("telescope.builtin").live_grep() end, {noremap = true, silent = false, desc = "Telescope live grep" });
 vim.keymap.set('i', '<C-b>', '<C-w>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
@@ -135,3 +137,8 @@ vim.keymap.set('n', '<F5>', vim.cmd.UndotreeToggle, { noremap = true, silent = t
 -- Terminal utils
 vim.keymap.set('t', '<ESC><ESC>', '<C-\\><C-n>', { noremap = true, silent = true, desc = "Start undo tree" })
 vim.keymap.set('n', 'tt', ':term<CR>', { noremap = true, silent = true, desc = "Open terminal" })
+
+-- Git utilities
+--
+vim.keymap.set('n', '<leader>3s', ':Git status<CR>', { noremap = true, silent = true, desc = "Git status" })
+vim.keymap.set('n', '<leader>3l', ':Git log<CR>', { noremap = true, silent = true, desc = "Git log" })
