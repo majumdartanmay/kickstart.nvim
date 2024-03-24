@@ -142,3 +142,6 @@ vim.keymap.set('n', 'tt', ':term<CR>', { noremap = true, silent = true, desc = "
 --
 vim.keymap.set('n', '<leader>3s', ':Git status<CR>', { noremap = true, silent = true, desc = "Git status" })
 vim.keymap.set('n', '<leader>3l', ':Git log<CR>', { noremap = true, silent = true, desc = "Git log" })
+
+-- Relative number
+vim.wo.relativenumber = true
