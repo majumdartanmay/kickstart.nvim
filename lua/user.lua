@@ -135,7 +135,7 @@ vim.keymap.set('n', '<leader>m', ":MarkdownPreview<cr>", { noremap = true, silen
 vim.keymap.set('n', '<F5>', vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "Start undo tree" })
 
 -- Terminal utils
-vim.keymap.set('t', '<ESC><ESC>', '<C-\\><C-n>', { noremap = true, silent = true, desc = "Exit terminal" })
+vim.keymap.set('t', '|||', '<C-\\><C-n>', { noremap = true, silent = true, desc = "Exit terminal" })
 vim.keymap.set('n', 'tt', ':term<CR>', { noremap = true, silent = true, desc = "Open terminal" })
 
 -- Git utilities
@@ -145,3 +145,5 @@ vim.keymap.set('n', '<leader>3l', ':Git log<CR>', { noremap = true, silent = tru
 
 -- Relative number
 vim.wo.relativenumber = true
+
+--ignore patterns
