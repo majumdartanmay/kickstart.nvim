@@ -92,7 +92,7 @@ require("custom.plugins.config.harpoon");
 require("custom.plugins.config.java");
 require("custom.plugins.config.doge");
 
-vim.keymap.set('n', '<M-c>', function()
+vim.keymap.set('n', '1c', function()
   local filePath = vim.api.nvim_buf_get_name(0);
   if filePath == "" then
     print("No buffer is open. Aborting copy-paste.");
