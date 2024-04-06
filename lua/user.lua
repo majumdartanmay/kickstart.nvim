@@ -147,5 +147,5 @@ vim.keymap.set('n', '<leader>3l', ':Git log<CR>', { noremap = true, silent = tru
 vim.wo.relativenumber = true
 
 -- Configure visual mode highlighting
-vim.cmd([[:hi Visual  guifg=White guibg=LightBlue gui=none]])
+vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
 
