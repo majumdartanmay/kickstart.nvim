@@ -60,7 +60,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --
 require("mason-tool-installer").setup{
   ensure_installed = {
-    "ast-grep",
     "js-debug-adapter",
     "lua-language-server",
     "rust-analyzer",
