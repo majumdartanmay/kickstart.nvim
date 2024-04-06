@@ -1,6 +1,6 @@
 local function create_config() 
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t');
-  local workspace_dir = '/home/tanmay/Personal/jdtls_utility/data' .. project_name
+  local workspace_dir = './bin/data' .. project_name
 
   local config = {
     cmd = {
@@ -15,8 +15,8 @@ local function create_config()
       '--add-modules=ALL-SYSTEM',
       '--add-opens', 'java.base/java.util=ALL-UNNAMED',
       '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-      '-jar', '/home/tanmay/Personal/jdtls_utility/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-      '-configuration', '/home/tanmay/Personal/jdtls_utility/config_linux',
+      '-jar', '/home/tanmay/Personal/jdtls_utility/bin/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+      '-configuration', './bin/config_linux',
       '-data', workspace_dir
     },
   }
@@ -32,6 +32,5 @@ local function start_jdtls()
   print("Attempt to start JDLTS finished " .. project_name);
 end
 
-vim.keymap.set('n', '<C-j>', start_jdtls, { noremap = true, silent = true, desc = "Start JDTLS server" })
-
+vim.keymap.set('n', '<C-1>', start_jdtls, { noremap = true, silent = true, desc = "Start JDTLS server" })
 
