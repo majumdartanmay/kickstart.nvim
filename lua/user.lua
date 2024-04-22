@@ -98,7 +98,7 @@ vim.keymap.set('n', '1c', function()
     return;
   end
   print(("Copied: `%s`"):format(filePath))
-  vim.fn.setreg("+", filePath)
+  vim.fn.setreg("*", filePath)
 end, { noremap = true, silent = true, desc = "Copy buffer path to clipboard" })
 
 -- Primagen keymapping
@@ -148,3 +148,5 @@ vim.wo.relativenumber = true
 -- Configure visual mode highlighting
 vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
 
+-- Change colorscheme
+vim.cmd[[colorscheme tokyonight]]
