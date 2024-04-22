@@ -148,3 +148,5 @@ vim.wo.relativenumber = true
 -- Configure visual mode highlighting
 vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
 
+-- Change colorscheme
+vim.cmd[[colorscheme tokyonight]]
