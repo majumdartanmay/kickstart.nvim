@@ -1,4 +1,3 @@
-
 local js_based_languages = {
   "typescript",
   "javascript",
@@ -21,8 +20,20 @@ return {
     },
     {
       "rcarriga/nvim-dap-ui",
-      opts = { floating = { border = "rounded" } },
+      opts = {
+        floating = { border = "rounded" },
+        icons = {
+          collapsed = "",
+          current_frame = "",
+          expanded = "",
+        }
+      },
       config = require "custom.plugins.config.nvim-dap-ui",
+      dependencies = {
+        "nvim-neotest/nvim-nio",
+        "nvim-tree/nvim-web-devicons",
+        "ChristianChiarulli/neovim-codicons"
+      }
     },
     {
       "rcarriga/cmp-dap",
