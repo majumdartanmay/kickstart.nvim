@@ -90,6 +90,7 @@ let g:netrw_localcopydircmd = 'cp -r'
 require("custom.plugins.config.harpoon");
 require("custom.plugins.config.java");
 require("custom.plugins.config.doge");
+require("custom.plugins.config.rust_config");
 
 vim.keymap.set('n', '1c', function()
   local filePath = vim.api.nvim_buf_get_name(0);
