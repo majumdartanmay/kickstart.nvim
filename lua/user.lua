@@ -7,7 +7,6 @@ vim.keymap.set('n', '<leader>fw', function() require("telescope.builtin").live_g
 vim.keymap.set('i', '<C-b>', '<C-w>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
 vim.keymap.set('i', '<c-z>', '<c-o>u', { desc = "undo" });
-vim.keymap.set('i', '<c-a>', '<c-o>:%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in insert mode" });
 vim.keymap.set('n', '<c-a>', ':%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in normal mode" });
 vim.keymap.set('n', '<c-]>', function() require("telescope.builtin").buffers() end, { noremap = true, silent = false, desc = "Open list of buffers" });
 vim.keymap.set('i', '<c-s>', '<c-o>:w<cr>', { noremap = true, silent = false, desc = "save buffer" });
@@ -151,3 +150,8 @@ vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
 
 -- Change colorscheme
 vim.cmd[[colorscheme tokyonight]]
+
+-- shortcuts for full selection
+vim.keymap.set('i', '<c-a>', '<c-o>:%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in insert mode" });
+vim.keymap.set('n', '<c-d>', 'ggVGx', {noremap = true, silent = false, desc = "Delete all" });
+vim.keymap.set('n', '<leader>5', 'ggVG', {noremap = true, silent = false, desc = "Select all" });
