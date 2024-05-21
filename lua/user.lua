@@ -145,13 +145,14 @@ vim.keymap.set('n', '<leader>3l', ':Git log<CR>', { noremap = true, silent = tru
 -- Relative number
 vim.wo.relativenumber = true
 
--- Configure visual mode highlighting
-vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
 
 -- Change colorscheme
 vim.cmd[[colorscheme tokyonight]]
 
+-- Configure visual mode highlighting
+vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
+
 -- shortcuts for full selection
 vim.keymap.set('i', '<c-a>', '<c-o>:%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in insert mode" });
-vim.keymap.set('n', '<c-d>', 'ggVGx', {noremap = true, silent = false, desc = "Delete all" });
+vim.keymap.set('n', '<leader>6', 'ggVGx', {noremap = true, silent = false, desc = "Delete all" });
 vim.keymap.set('n', '<leader>5', 'ggVG', {noremap = true, silent = false, desc = "Select all" });
