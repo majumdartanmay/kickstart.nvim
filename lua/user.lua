@@ -17,6 +17,8 @@ vim.keymap.set('n', '<C-h>', '<C-w><', { noremap = true, silent = false, desc = 
 vim.keymap.set('n', '<C-l>', '<C-w>>', { noremap = true, silent = false, desc = "Increase window width" });
 vim.keymap.set('n', '<leader>pa', function() vim.cmd([[:Lexplore]]) end, { noremap = true, silent = false, desc = "Will open Netrw in the current working directory." });
 vim.keymap.set('n', '<leader>pd', function() vim.cmd([[:Lexplore %:p:h]]) end, { noremap = true, silent = false, desc = "Open Netrw in the directory of the current file." });
+vim.keymap.set('n', 'K', 'k', {noremap = true, silent = false, desc = "Up" });
+vim.keymap.set('n', 'J', 'J', {noremap = true, silent = false, desc = "Down" });
 --
 -- tresitter configuration
 vim.treesitter.language.register('html', 'jsp'); -- use html parser for jsp 
@@ -100,6 +102,16 @@ vim.keymap.set('n', '1c', function()
   print(("Copied: `%s`"):format(filePath))
   vim.fn.setreg("*", filePath)
 end, { noremap = true, silent = true, desc = "Copy buffer path to clipboard" })
+
+vim.keymap.set('n', '2c', function()
+  local filePath = vim.api.nvim_buf_get_name(0);
+  if filePath == "" then
+    print("No buffer is open. Aborting path fetch");
+    return;
+  end
+  print(("Path: `%s`"):format(filePath))
+  vim.fn.setreg("*", filePath)
+end, { noremap = true, silent = true, desc = "Print buffer path" })
 
 -- Primagen keymapping
 -- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/remap.lua
