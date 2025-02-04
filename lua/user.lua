@@ -25,7 +25,20 @@ vim.treesitter.language.register('html', 'jsp'); -- use html parser for jsp
 
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
-
+lspconfig.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 200,
+        },
+        flake8 = {
+          maxLineLength = 200,
+        }
+      }
+    }
+  }
+}
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
