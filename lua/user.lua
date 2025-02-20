@@ -24,7 +24,7 @@ vim.keymap.set('n', 'J', 'J', {noremap = true, silent = false, desc = "Down" });
 vim.treesitter.language.register('html', 'jsp'); -- use html parser for jsp 
 
 local lspconfig = require('lspconfig')
-lspconfig.tsserver.setup {}
+-- lspconfig.tsserver.setup {}
 lspconfig.pylsp.setup{
   settings = {
     pylsp = {
