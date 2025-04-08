@@ -156,7 +156,8 @@ vim.keymap.set('n', '<leader>m', ":MarkdownPreview<cr>", { noremap = true, silen
 
 -- undo tree
 --
-vim.keymap.set('n', '<F5>', vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "Start undo tree" })
+vim.keymap.set('n', '<F5>', ":Oil<cr>" , { noremap = true, silent = true, desc = "Start oil in current buffer" })
+vim.keymap.set('n', '<F6>', ":e.<cr>" , { noremap = true, silent = true, desc = "Start oil in CWD" })
 
 -- Terminal utils
 vim.keymap.set('t', '|||', '<C-\\><C-n>', { noremap = true, silent = true, desc = "Exit terminal" })
