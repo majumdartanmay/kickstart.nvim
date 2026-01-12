@@ -181,3 +181,13 @@ vim.cmd([[:hi Visual  guifg=White guibg=Purple gui=none]])
 vim.keymap.set('i', '<c-a>', '<c-o>:%y+<cr><cr>', {noremap = true, silent = false, desc = "select all in insert mode" });
 vim.keymap.set('n', '<leader>6', 'ggVGx', {noremap = true, silent = false, desc = "Delete all" });
 vim.keymap.set('n', '<leader>5', 'ggVG', {noremap = true, silent = false, desc = "Select all" });
+
+-- jsp comment logically
+--
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "jsp",
+  callback = function()
+    vim.bo.commentstring = "<%-- %s --%>"
+  end,
+})
+
