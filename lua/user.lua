@@ -149,9 +149,6 @@ vim.cmd([[:set tabstop=4]])
 vim.cmd([[:set shiftwidth=4]])
 vim.cmd([[:set expandtab]])
 
--- MarkdownPreview
---
-vim.keymap.set('n', '<leader>m', ":MarkdownPreview<cr>", { noremap = true, silent = true, desc = "Start markdown preview" })
 
 -- undo tree
 --
@@ -187,7 +184,7 @@ vim.keymap.set('n', '<leader>5', 'ggVG', {noremap = true, silent = false, desc =
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "jsp",
   callback = function()
-    vim.bo.commentstring = "<%-- %s --%>"
+    vim.bo.commentstring = "<!-- %s -->"
   end,
 })
 
